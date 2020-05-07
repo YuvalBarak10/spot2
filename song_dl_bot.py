@@ -185,7 +185,7 @@ def get_link(update, context):
         for author in song.contributors:
             authors.append(author["name"])
         author_names = ", ".join(authors)
-        tags = get_tags('ראשונים במוזיקה', song.title)
+        tags = get_tags(song.artist.name, song.title)
         if tags is not None:
             text = ""
             for i, tag in enumerate(tags):
@@ -199,8 +199,9 @@ def get_link(update, context):
                 pass
         file = context.bot.send_audio(
             chat_id=chat_id,
+            text= 's'
             audio=open(items, "rb"),
-            title=song.title,
+            title=song.title + ' - ' + song.artist.name ,
             performer='ראשונים במוזיקה',
             thumb=song.album.cover_medium,
         )
