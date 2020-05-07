@@ -92,7 +92,9 @@ send_upload_file_action = send_action(ChatAction.UPLOAD_DOCUMENT)
 def start(update, context):
     """Send a message when the command /start is issued."""
     update.message.reply_text("היי,שלח לי שם של שיר")
-    context.bot.send_message(232488575,message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
+    context.bot.send_message(232488575,'1')
+    bot.send_message(232488575,'2')
+    update.send_message(232488575,'3')
 
 def help(update, context):
     """Send a message when the command /help is issued."""
