@@ -1,0 +1,7 @@
+[DEFAULT]
+naming template = tracks/<Artist> - <Title>
+playlist naming template = downloads/playlists/<Playlist Title>/<Track#> - <Title>
+quality = 2
+usertoken = 608f41f01345fe06885a797f1bc5ef9d7e91b06b1015d8815120d27a856453903a1eb606b97a457fcd8f73a9c57d6e81632288f3e32c278c536658d6f6f966f6072b6af98f42bf027e498d8df9490cc7d77858516d0c84b7726db3379617d68c
+embed album art = False
+download lyrics = False
