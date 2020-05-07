@@ -199,7 +199,7 @@ def getTags(trackInfo, albInfo, playlist):
         'date'        : trackInfo['album']['release_date'],
         'artist'      : 'ראשונים במוזיקה',
         'bpm'         : trackInfo['bpm'],
-        'albumartist' : albInfo['artist']['name'],
+        'albumartist' : 'ראשונים במוזיקה',
         'totaltracks' : albInfo['nb_tracks'],
         'label'       : albInfo['label'],
         'genre'       : genre
