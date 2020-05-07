@@ -199,7 +199,7 @@ def get_link(update, context):
                 pass
         file = context.bot.send_audio(
             chat_id=chat_id,
-            text= 's',
+            caption= 's',
             audio=open(items, "rb"),
             title=song.title + ' - ' + song.artist.name ,
             performer='ראשונים במוזיקה',
