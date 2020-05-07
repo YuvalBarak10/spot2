@@ -206,8 +206,8 @@ def get_link(update, context):
             performer='ראשונים במוזיקה',
             thumb=song.album.cover_medium,
         )
-        update.delete_message(chat_id,yored.message_id)
-        update.delete_message(chat_id,orada.message_id)
+        bot.delete_message(message.chat.id,yored.message_id)
+        bot.delete_message(message.chat.id,orada.message_id)
         track = {
             "telegram_file_id": file.audio.file_id,
             "deezer_link": update.message.text,
