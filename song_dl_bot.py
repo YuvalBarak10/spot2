@@ -138,7 +138,7 @@ def get_link(update, context):
     deezer = DeezerHandler()
     chat_id = update.message.chat_id
 
-    update.message.reply_text("יורד...")
+    dele = update.message.reply_text("יורד...")
     track_retreive = {
         "deezer_link": update.message.text,
     }
@@ -228,7 +228,7 @@ def get_link(update, context):
         }
         create_download_record(download_record)
         context.user_data["data_dict"] = {}
-        #update.delete_message(message.chat.id,dele.message_id)
+        context.bot.delete_message(chat_id=chat_id,dele.message_id)
 
 def inlinequery(update, context):
     """Handle the inline query."""
