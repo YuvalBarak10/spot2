@@ -96,14 +96,14 @@ def start(update, context):
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text("@rap_ap")
+    update.message.reply_text("שלח שם של שיר ופעל על פי ההוראות")
 
 def get_download_history(update, context):
-    chat_id = update.message.chat_id
-    with open("download_history.txt","w") as f:
-        f.write(str(retreive_download_history()))
-    update.message.reply_text("מוריד!")
-    context.bot.send_document(document=open('download_history.txt', 'rb'), chat_id=chat_id)
+#    chat_id = update.message.chat_id
+#    with open("download_history.txt","w") as f:
+#        f.write(str(retreive_download_history()))
+#   update.message.reply_text("מוריד!")
+#   context.bot.send_document(document=open('download_history.txt', 'rb'), chat_id=chat_id)
 #    update.message.reply_text(retreive_download_history())
 
 def get_message(update, context):
@@ -146,7 +146,7 @@ def get_link(update, context):
     if audio_in_db is None:
         items = deezer.download_url(update.message.text)
     else:
-        update.message.reply_text("ההורדה הסתיימה, עורך ראשונים במוזיקה ושולח...")
+        update.message.reply_text("ההורדה הסתיימה,שולח...")
         file = context.bot.send_audio(chat_id=chat_id, audio=audio_in_db[1])
         
         track_update = {
@@ -167,7 +167,7 @@ def get_link(update, context):
         create_download_record(download_record)
         
         return
-    update.message.reply_text("ההורדה הסתיימה, עורך ראשונים במוזיקה ושולח...")
+    update.message.reply_text("ההורדה הסתיימה,שולח...")
 
     # fix this! items is not a list of songs
     # add if update.message has album in it!
@@ -199,9 +199,9 @@ def get_link(update, context):
                 pass
         file = context.bot.send_audio(
             chat_id=chat_id,
-            caption= 's',
+            caption= '🎵@MusicIsrael🎧',
             audio=open(items, "rb"),
-            title=song.title + ' - ' + song.artist.name ,
+            title=song.artist.name + ' - ' + song.title ,
             performer='ראשונים במוזיקה',
             thumb=song.album.cover_medium,
         )
