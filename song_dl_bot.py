@@ -108,19 +108,19 @@ def get_download_history(update, context):
 
 def get_message(update, context):
     keyboard = [
-        #[
-         #   InlineKeyboardButton(
-          #      "Search by artist",
-           #     switch_inline_query_current_chat=f"Artist:{update.message.text}",
-          #  ),
-           # InlineKeyboardButton(
-            #    "Search by album",
-             #   switch_inline_query_current_chat=f"Album:{update.message.text}",
-         #   ),
-       # ],
         [
             InlineKeyboardButton(
-                "חיפוש ברובוט",
+                "חיפוש כאמן",
+                switch_inline_query_current_chat=f"Artist:{update.message.text}",
+            ),
+            InlineKeyboardButton(
+                "חיפוש כאלבום",
+                switch_inline_query_current_chat=f"Album:{update.message.text}",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                "חיפוש כללי",
                 switch_inline_query_current_chat=f"{update.message.text}",
             )
         ],
@@ -199,7 +199,7 @@ def get_link(update, context):
                 pass
         file = context.bot.send_audio(
             chat_id=chat_id,
-            text= 's'
+            text= 's',
             audio=open(items, "rb"),
             title=song.title + ' - ' + song.artist.name ,
             performer='ראשונים במוזיקה',
