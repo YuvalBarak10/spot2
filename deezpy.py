@@ -30,7 +30,7 @@ from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from mutagen.easyid3 import EasyID3
 from mutagen.mp3 import MP3
-from requests.packages.urllib3.util.retry import Retry
+from urllib3.util.retry import Retry
 
 
 session = requests.Session()
