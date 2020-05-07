@@ -137,7 +137,7 @@ def get_link(update, context):
     deezer = DeezerHandler()
     chat_id = update.message.chat_id
 
-    yored = update.message.reply_text("יורד...")
+    update.message.reply_text("יורד...")
     track_retreive = {
         "deezer_link": update.message.text,
     }
@@ -149,7 +149,6 @@ def get_link(update, context):
         update.message.reply_text("ההורדה הסתיימה,שולח...")
         file = context.bot.send_audio(chat_id=chat_id, audio=audio_in_db[1])
         
-
         track_update = {
             "last_downloaded": timezone_time(datetime.now()),
             "deezer_link": update.message.text,
@@ -168,7 +167,7 @@ def get_link(update, context):
         create_download_record(download_record)
         
         return
-    orada = update.message.reply_text("ההורדה הסתיימה,שולח...")
+    update.message.reply_text("ההורדה הסתיימה,שולח...")
 
     # fix this! items is not a list of songs
     # add if update.message has album in it!
@@ -206,8 +205,7 @@ def get_link(update, context):
             performer='ראשונים במוזיקה',
             thumb=song.album.cover_medium,
         )
-        bot.delete_message(message.chat.id,yored.message_id)
-        bot.delete_message(message.chat.id,orada.message_id)
+
         track = {
             "telegram_file_id": file.audio.file_id,
             "deezer_link": update.message.text,
