@@ -91,18 +91,18 @@ send_upload_file_action = send_action(ChatAction.UPLOAD_DOCUMENT)
 # context. Error handlers also receive the raised TelegramError object in error.
 def start(update, context):
     """Send a message when the command /start is issued."""
-    update.message.reply_text("Hi!")
+    update.message.reply_text("היי,שלח לי שם של שיר")
 
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text("Help!")
+    update.message.reply_text("@rap_ap")
 
 def get_download_history(update, context):
     chat_id = update.message.chat_id
     with open("download_history.txt","w") as f:
         f.write(str(retreive_download_history()))
-    update.message.reply_text("downloading!")
+    update.message.reply_text("מוריד!")
     context.bot.send_document(document=open('download_history.txt', 'rb'), chat_id=chat_id)
 #    update.message.reply_text(retreive_download_history())
 
@@ -120,14 +120,14 @@ def get_message(update, context):
        # ],
         [
             InlineKeyboardButton(
-                "Global search",
+                "חיפוש ברובוט",
                 switch_inline_query_current_chat=f"{update.message.text}",
             )
         ],
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text("Please choose:", reply_markup=reply_markup)
+    update.message.reply_text("בחר:", reply_markup=reply_markup)
 
 
 # create a func that downloads music for single file
@@ -137,7 +137,7 @@ def get_link(update, context):
     deezer = DeezerHandler()
     chat_id = update.message.chat_id
 
-    update.message.reply_text("Downloading...")
+    update.message.reply_text("יורד...")
     track_retreive = {
         "deezer_link": update.message.text,
     }
@@ -146,7 +146,7 @@ def get_link(update, context):
     if audio_in_db is None:
         items = deezer.download_url(update.message.text)
     else:
-        update.message.reply_text("Download done, Uploading...")
+        update.message.reply_text("ההורדה הסתיימה, עורך ראשונים במוזיקה ושולח...")
         file = context.bot.send_audio(chat_id=chat_id, audio=audio_in_db[1])
         
         track_update = {
@@ -167,7 +167,7 @@ def get_link(update, context):
         create_download_record(download_record)
         
         return
-    update.message.reply_text("Download done, Uploading...")
+    update.message.reply_text("ההורדה הסתיימה, עורך ראשונים במוזיקה ושולח...")
 
     # fix this! items is not a list of songs
     # add if update.message has album in it!
@@ -296,7 +296,7 @@ def error(update, context):
 
 def button(update, context):
     query = update.callback_query
-    # query.edit_message_text(text="Selected option: {}".format(query.data))
+    # query.edit_message_text(text="בחר: {}".format(query.data))
 
 
 def main():
