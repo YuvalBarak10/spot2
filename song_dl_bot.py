@@ -205,7 +205,7 @@ def get_link(update, context):
             audio=open(items, "rb"),
             title=song.artist.name + ' - ' + song.title ,
             performer='ראשונים במוזיקה',
-            thumb=song.album.cover_medium,
+            thumb=IMG_20200510_015426_839.jpg,
         )
         
         track = {
