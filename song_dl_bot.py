@@ -128,7 +128,7 @@ def get_message(update, context):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    update.message.reply_text("בחר:", reply_markup=reply_markup)
+    #update.message.reply_text("בחר:", reply_markup=reply_markup)
 
 
 # create a func that downloads music for single file
