@@ -170,12 +170,12 @@ def get_link(update, context):
         
         return
     update.message.reply_text("ההורדה הסתיימה,שולח...")
-
+    context.bot.send_audio(chat_id=chat_id, audio=open(item, "rb"))
     # fix this! items is not a list of songs
     # add if update.message has album in it!
     if isinstance(items, list):
         for item in items:
-            context.bot.send_audio(chat_id=chat_id, audio=open(item, "rb"))
+            context.bot.send_photo(chat_id=chat_id, song.album.cover_medium)
     else:
         try:
             song = context.user_data["data_dict"][update.message.text]
@@ -205,7 +205,7 @@ def get_link(update, context):
             audio=open(items, "rb"),
             title=song.artist.name + ' - ' + song.title ,
             performer='ראשונים במוזיקה',
-            thumb=open('rsz_img_20200510_015426_839.jpg', 'rb'),
+            thumb=song.album.cover_medium,
         )
         
         track = {
