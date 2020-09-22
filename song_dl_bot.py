@@ -171,7 +171,7 @@ def get_link(update, context):
         return
     update.message.reply_text("ההורדה הסתיימה,שולח...")
     ph = song.album.cover_medium
-    context.bot.send_photo(chat_id, ph, caption="This is the test photo caption")
+    context.bot.send_photo(chat_id, open('ph', 'rb'), caption="This is the test photo caption")
     context.bot.send_audio(chat_id=chat_id, audio=open(item, "rb"))
     # fix this! items is not a list of songs
     # add if update.message has album in it!
